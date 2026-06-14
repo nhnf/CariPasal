@@ -1,17 +1,27 @@
 {
-  "name": "app-temp",
+  "name": "caripasal",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "ingest:discover": "node --env-file=.env.local ./scripts/ingest/discover.mjs",
+    "ingest:extract": "node --env-file=.env.local ./scripts/ingest/extract.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.57.4",
+    "cheerio": "^1.1.2",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.542.0",
     "next": "16.2.9",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "^4.1.11",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -20,7 +30,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "jsdom": "^27.0.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   }
 }

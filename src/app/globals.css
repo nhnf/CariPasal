@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #f6f2ea;
+  --foreground: #1a2433;
+  --text-color: #1a2433;
+  --text-soft: #5f6c7d;
+  --text-muted: #7d8897;
+  --surface-card-bg: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.86);
+  --surface-soft: rgba(250, 245, 237, 0.9);
+  --border-color: rgba(210, 198, 181, 0.85);
+  --border-strong: rgba(183, 167, 144, 0.95);
+  --accent-color: #8b5e34;
+  --accent-soft: #efe4d5;
+  --accent-soft-strong: #e8d8c2;
+  --contrast-bg: #1a2433;
+  --contrast-text: #f8fafc;
+  --selection-bg: rgba(180, 83, 9, 0.18);
+  --background-glow:
+    radial-gradient(circle at top, rgba(180, 83, 9, 0.14), transparent 34%),
+    radial-gradient(circle at 85% 10%, rgba(148, 163, 184, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(255, 251, 235, 0.9) 0%, rgba(248, 250, 252, 1) 28%, rgba(255, 255, 255, 1) 100%);
+  --background-grid:
+    linear-gradient(120deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+}
+
+:root[data-theme="dark"] {
+  --background: #0f1720;
+  --foreground: #e5edf6;
+  --text-color: #e5edf6;
+  --text-soft: #a7b4c5;
+  --text-muted: #8a97aa;
+  --surface-card-bg: rgba(17, 24, 39, 0.76);
+  --surface-strong: rgba(24, 34, 49, 0.92);
+  --surface-soft: rgba(30, 41, 59, 0.78);
+  --border-color: rgba(71, 85, 105, 0.6);
+  --border-strong: rgba(120, 136, 160, 0.75);
+  --accent-color: #f1c48d;
+  --accent-soft: rgba(120, 83, 47, 0.28);
+  --accent-soft-strong: rgba(120, 83, 47, 0.4);
+  --contrast-bg: #e5edf6;
+  --contrast-text: #0f1720;
+  --selection-bg: rgba(241, 196, 141, 0.24);
+  --background-glow:
+    radial-gradient(circle at top, rgba(241, 196, 141, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 10%, rgba(59, 130, 246, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(15, 23, 32, 1) 0%, rgba(10, 15, 24, 1) 100%);
+  --background-grid:
+    linear-gradient(120deg, rgba(71, 85, 105, 0.16) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(71, 85, 105, 0.12) 1px, transparent 1px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button,
+select,
+textarea {
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: #0f172a;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.surface-card {
+  background: var(--surface-card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.app-background-glow {
+  background: var(--background-glow);
+}
+
+.app-background-grid {
+  background: var(--background-grid);
+  background-size: 140px 140px;
+  opacity: 0.3;
 }
