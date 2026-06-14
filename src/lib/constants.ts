@@ -40,6 +40,11 @@ export const CATEGORY_OPTIONS: Array<{
     label: "Lalu Lintas",
     description: "Kecelakaan lalu lintas dan kelalaian pengemudi.",
   },
+  {
+    value: "konstitusi",
+    label: "Konstitusi",
+    description: "Hak dasar warga negara, kebebasan, dan prinsip ketatanegaraan.",
+  },
 ];
 
 export const HERO_EXAMPLES = [
@@ -50,7 +55,7 @@ export const HERO_EXAMPLES = [
 ];
 
 export const HOME_METRICS = [
-  { label: "Corpus awal", value: "7 UU prioritas" },
+  { label: "Corpus awal", value: "7 UU + UUD 1945" },
   { label: "Mode hasil", value: "multi-kandidat" },
   { label: "Sumber", value: "tautan resmi" },
 ];

@@ -1,5 +1,8 @@
+'use client';
+
 import { ArrowRight, BookOpenText, ExternalLink, ShieldAlert } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 import { getRelevanceAccent, sentenceCase } from "@/lib/search";
 import type { SearchResult } from "@/lib/types";
@@ -7,6 +10,8 @@ import type { SearchResult } from "@/lib/types";
 type ResultCardProps = {
   result: SearchResult;
 };
+
+const ARTICLE_PREVIEW_LENGTH = 260;
 
 const accentMap = {
   emerald: "border-emerald-200 bg-emerald-50 text-emerald-700",
@@ -16,6 +21,11 @@ const accentMap = {
 
 export function ResultCard({ result }: ResultCardProps) {
   const accent = getRelevanceAccent(result.relevance_label);
+  const [isArticleExpanded, setIsArticleExpanded] = useState(false);
+  const hasLongArticleText = result.article_text.length > ARTICLE_PREVIEW_LENGTH;
+  const articlePreview = hasLongArticleText
+    ? `${result.article_text.slice(0, ARTICLE_PREVIEW_LENGTH).trimEnd()}...`
+    : result.article_text;
 
   return (
     <article className="surface-card rounded-[2rem] border border-[var(--border-color)] p-5 shadow-[0_24px_70px_rgba(15,23,42,0.07)]">
@@ -93,6 +103,31 @@ export function ResultCard({ result }: ResultCardProps) {
             )}
           </div>
         </div>
+      </div>
+
+      <div className="mt-4 rounded-[1.5rem] border border-[var(--border-color)] bg-[var(--surface-strong)] p-4">
+        <div className="mb-3 flex items-center gap-2 text-xs font-medium text-[var(--text-muted)]">
+          <BookOpenText className="h-4 w-4" />
+          Isi pasal
+        </div>
+        {hasLongArticleText ? (
+          <>
+            <p className="whitespace-pre-line text-sm leading-7 text-[var(--text-color)]">
+              {isArticleExpanded ? result.article_text : articlePreview}
+            </p>
+            <button
+              type="button"
+              onClick={() => setIsArticleExpanded((value) => !value)}
+              className="mt-3 text-sm font-medium text-[var(--accent-color)] transition hover:opacity-80"
+            >
+              {isArticleExpanded ? "Lihat lebih ringkas" : "Lihat selengkapnya"}
+            </button>
+          </>
+        ) : (
+          <p className="whitespace-pre-line text-sm leading-7 text-[var(--text-color)]">
+            {result.article_text}
+          </p>
+        )}
       </div>
 
       <div className="mt-5 flex flex-wrap gap-3">

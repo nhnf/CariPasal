@@ -249,6 +249,72 @@ const DATASET: SeedArticle[] = [
       },
     ],
   },
+  {
+    article_id: "article-uud-27-1",
+    law_id: "law-uud-1945",
+    law_title: "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945",
+    law_number: "UUD 1945",
+    law_year: 1945,
+    category: "konstitusi",
+    article_number: "Pasal 27 ayat (1)",
+    article_text:
+      "Segala warga negara bersamaan kedudukannya di dalam hukum dan pemerintahan dan wajib menjunjung hukum dan pemerintahan itu dengan tidak ada kecualinya.",
+    plain_summary:
+      "Pasal ini menjadi dasar konstitusional bahwa setiap warga negara berhak diperlakukan sama di depan hukum dan pemerintahan.",
+    source_url: "https://peraturan.bpk.go.id/Details/101646/",
+    search_document:
+      "uud 1945 pasal 27 ayat 1 persamaan di depan hukum sama di depan hukum diskriminasi warga negara perlakuan sama",
+    keywords: [
+      { term: "persamaan di depan hukum", weight: 0.95 },
+      { term: "sama di depan hukum", weight: 0.9 },
+      { term: "diskriminasi", weight: 0.55 },
+    ],
+    sanctions: [],
+  },
+  {
+    article_id: "article-uud-28e-3",
+    law_id: "law-uud-1945",
+    law_title: "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945",
+    law_number: "UUD 1945",
+    law_year: 1945,
+    category: "konstitusi",
+    article_number: "Pasal 28E ayat (3)",
+    article_text:
+      "Setiap orang berhak atas kebebasan berserikat, berkumpul, dan mengeluarkan pendapat.",
+    plain_summary:
+      "Pasal ini melindungi kebebasan berorganisasi, berkumpul, dan menyampaikan pendapat sebagai hak dasar warga negara.",
+    source_url: "https://peraturan.bpk.go.id/Details/101646/",
+    search_document:
+      "uud 1945 pasal 28e ayat 3 kebebasan berpendapat kebebasan berserikat kebebasan berkumpul demonstrasi organisasi pendapat",
+    keywords: [
+      { term: "kebebasan berpendapat", weight: 0.95 },
+      { term: "berserikat", weight: 0.7 },
+      { term: "demo", weight: 0.45 },
+    ],
+    sanctions: [],
+  },
+  {
+    article_id: "article-uud-28g-1",
+    law_id: "law-uud-1945",
+    law_title: "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945",
+    law_number: "UUD 1945",
+    law_year: 1945,
+    category: "konstitusi",
+    article_number: "Pasal 28G ayat (1)",
+    article_text:
+      "Setiap orang berhak atas perlindungan diri pribadi, keluarga, kehormatan, martabat, dan harta benda yang di bawah kekuasaannya, serta berhak atas rasa aman dan perlindungan dari ancaman ketakutan untuk berbuat atau tidak berbuat sesuatu yang merupakan hak asasi.",
+    plain_summary:
+      "Pasal ini menegaskan hak atas rasa aman, perlindungan diri, dan perlindungan dari ancaman yang mengganggu hak asasi seseorang.",
+    source_url: "https://peraturan.bpk.go.id/Details/101646/",
+    search_document:
+      "uud 1945 pasal 28g ayat 1 perlindungan diri rasa aman ancaman kehormatan martabat keluarga harta benda hak asasi",
+    keywords: [
+      { term: "rasa aman", weight: 0.9 },
+      { term: "ancaman", weight: 0.6 },
+      { term: "perlindungan diri", weight: 0.8 },
+    ],
+    sanctions: [],
+  },
 ];
 
 function scoreArticle(article: SeedArticle, normalizedQuery: string, selectedCategory?: string) {

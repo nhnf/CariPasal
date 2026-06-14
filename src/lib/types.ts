@@ -5,7 +5,8 @@ export type CategoryKey =
   | "konsumen"
   | "anak"
   | "narkotika"
-  | "lalu lintas";
+  | "lalu lintas"
+  | "konstitusi";
 
 export type RelevanceLabel = "tinggi" | "sedang" | "rendah";
 
